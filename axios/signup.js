@@ -25,7 +25,7 @@ function initBtn() {
 
                 else {
                     alert(`${res.data}님 회원가입 축하드립니다.`);
-                    location.href = "http://localhost:3000/";
+                    location.href = "http://localhost:3000/login";
                 }
 
             }).catch(err => {

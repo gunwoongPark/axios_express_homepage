@@ -1,48 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <title>Main</title>
-    <style>
-        .nav-link {
-            cursor: pointer;
-        }
-    </style>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./axios/write.js" defer></script>
+    <title>Write</title>
 </head>
 
 <body>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="position:sticky; top:0;">
-        <!-- Brand/logo -->
         <a class="navbar-brand" href="http://localhost:3000/">Logo</a>
 
-        <!-- Links -->
-
-
         <ul class="navbar-nav" style="margin-left:auto;">
-
             <li class=" nav-item">
                 <a class="nav-link" href="http://localhost:3000/post">Post</a>
             </li>
             <li class="nav-item ">
                 <a class="nav-link" id="loginBox" onclick="goLogin()">Login</a>
             </li>
-
         </ul>
-
     </nav>
 
-    <div class="container">
+    <div class="container mt-2">
+
         <div class="row">
             <div class="col">
-                <h1>Hello Express!</h1>
+                <label for="title">Title:</label>
+                <input type="text" class="form-control" id="title">
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="col">
+                <label for="contents">Contents:</label>
+                <textarea class="form-control" rows="10" id="contents"></textarea>
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row ">
+            <div class="col mb-2">
+                <button type="button" class="btn btn-danger btn-block" id="cancelBtn"
+                    onclick="clickCancel()">취소</button>
+            </div>
+            <div class="col ">
+                <button type="button" class="btn btn-primary btn-block" id="registerBtn">등록</button>
             </div>
         </div>
     </div>
 
     <script>
-
         function goLogin() {
 
             if (document.querySelector('#loginBox').innerText === "Login") {
@@ -60,6 +72,9 @@
             document.querySelector('#loginBox').innerHTML = "Logout";
         }
 
+        function clickCancel() {
+            window.history.back();
+        }
     </script>
 </body>
 

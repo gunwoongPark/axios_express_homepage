@@ -5,7 +5,13 @@ const app = express();
 app.use(express.json())
 app.use(express.static('./'))
 
+
 app.get('/', (req, res) => {
+    res.sendFile(__dirname + "/main.html");
+})
+
+
+app.get('/login', (req, res) => {
     res.sendFile(__dirname + "/login.html")
 })
 
@@ -88,10 +94,65 @@ app.post('/server_signup', (req, res) => {
 
 })
 
-
-app.get('/main', (req, res) => {
-    res.sendFile(__dirname + "/main.html");
+app.get('/post', (req, res) => {
+    res.sendFile(__dirname + "/post.html")
 })
+
+app.get('/write', (req, res) => {
+    res.sendFile(__dirname + "/write.html")
+})
+
+function guid() {
+    function s4() {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
+    return s4() + s4() + '-' + s4() + '-' + s4() + '-' +
+        s4() + '-' + s4() + s4() + s4();
+}
+
+app.post('/server_write', (req, res) => {
+    let postObj = {
+        nickName: req.body.nickName,
+        title: req.body.title,
+        contents: req.body.contents
+    }
+
+    const date = new Date();
+
+    postObj.guid = guid();
+    postObj.date = `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}`
+
+
+    if (fs.existsSync('posts.json')) {
+        console.log('있어!');
+
+        fs.readFile('posts.json', 'utf8', function (err, data) {
+            let jsonArray = JSON.parse(data);
+
+            jsonArray.push(postObj);
+            const jsonObj = JSON.stringify(jsonArray);
+            fs.writeFileSync('posts.json', jsonObj);
+
+        })
+    }
+
+    // 게시글 최초 등록
+    else {
+        console.log('없어!');
+
+        let jsonArray = new Array();
+        jsonArray.push(postObj);
+
+        const jsonObj = JSON.stringify(jsonArray);
+
+        fs.writeFileSync('posts.json', jsonObj)
+    }
+
+    res.send('게시글이 등록되었습니다.');
+})
+
 
 
 app.listen(3000, () => {

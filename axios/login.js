@@ -22,7 +22,7 @@ document.querySelector('#loginBtn').addEventListener('click', () => {
                 alert(`${res.data}님 환영합니다!`);
                 console.log(res);
                 sessionStorage.setItem('nickName', res.data)
-                location.href = "http://localhost:3000/main";
+                window.history.back();
             }
 
 

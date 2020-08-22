@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./axios/post.js" defer></script>
+    <title>Post</title>
+    <style>
+        .nav-link {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="position:sticky; top:0;">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="http://localhost:3000/">Logo</a>
+
+        <!-- Links -->
+
+
+        <ul class="navbar-nav" style="margin-left:auto;">
+
+            <li class=" nav-item">
+                <a class="nav-link" href="http://localhost:3000/post">Post</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" id="loginBox" onclick="goLogin()">Login</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+    <div class="container">
+
+        <div class="row" id="writeBtn">
+            <div class=" col-md-10"></div>
+            <div class="col-md-2">
+                <a href="http://localhost:3000/write"><button type="button"
+                        class="btn btn-outline-dark mt-2">글쓰기</button></a>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <table class="table table-hover text-center mt-2" id="postList">
+                    <thead>
+                        <tr>
+                            <th>번호</th>
+                            <th>제목</th>
+                            <th>작성자</th>
+                            <th>작성일</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>안녕</td>
+                            <td>닉네임</td>
+                            <td>2020-08-23</td>
+                        </tr>
+
+                        <tr>
+                            <td>2</td>
+                            <td>안녕</td>
+                            <td>닉네임</td>
+                            <td>2020-08-23</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        function goLogin() {
+
+            if (document.querySelector('#loginBox').innerText === "Login") {
+                location.href = "http://localhost:3000/login";
+            }
+
+            else {
+                sessionStorage.clear();
+                document.querySelector('#loginBox').innerHTML = 'Login';
+                location.reload(true);
+            }
+        }
+
+        if (!sessionStorage.length) {
+            document.querySelector('#writeBtn').style.display = "none";
+        }
+
+        if (sessionStorage.length) {
+            document.querySelector('#loginBox').innerHTML = "Logout";
+        }
+
+    </script>
+
+</body>
+
+</html>
