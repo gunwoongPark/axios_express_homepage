@@ -4,11 +4,94 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./axios/signup.js" defer></script>
     <title>signup</title>
 </head>
 
 <body>
-    <h1>Sign up</h1>
+    <div class="container" style="display: flex; justify-content: center;">
+        <div class="row">
+            <div class="col">
+                <div class="card" id="signupBox" style="width:500px; height:550px;">
+                    <div class="card-body container">
+                        <div class="row">
+                            <div class="col text-center">
+                                <h1 class="card-title">Sign up</h1>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col">
+                                <label for="id">ID:</label>
+                                <input type="text" class="form-control" id="id">
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" id="pwd">
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col">
+                                <label for="pwdConfirm">Password confirm:</label>
+                                <input type="password" class="form-control" id="pwdConfirm">
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col">
+                                <label for="nickName">Nickname:</label>
+                                <input type="text" class="form-control" id="nickName">
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col">
+                                <button id="registerBtn" type="button"
+                                    class="btn-sm btn-success btn-block mb-1">Register</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        window.onload = () => {
+            let parentHeight = window.innerHeight;
+            let cardHeight = Number(document.querySelector('#signupBox').style.height.replace(/[^0-9]/g, ''));
+
+            document.querySelector('#signupBox').style.marginTop = `${parentHeight / 2 - (cardHeight / 2)}px`;
+        }
+        window.onresize = () => {
+            let parentHeight = window.innerHeight;
+            let cardHeight = Number(document.querySelector('#signupBox').style.height.replace(/[^0-9]/g, ''));
+
+            document.querySelector('#signupBox').style.marginTop = `${parentHeight / 2 - (cardHeight / 2)}px`;
+        }
+    </script>
+
+
+
+
+
 </body>
 
 </html>

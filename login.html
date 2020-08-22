@@ -3,13 +3,79 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./axios/login.js" defer></script>
+    <title>Home</title>
+
 </head>
 
 <body>
-    <h1>Login</h1>
+    <div class="container" style="display: flex; justify-content: center;">
+        <div class="row">
+            <div class="col">
+                <div class="card" id="loginBox" style="width:500px; height:375px;">
+                    <div class="card-body container">
+                        <div class="row">
+                            <div class="col text-center">
+                                <h1 class="card-title">Login</h1>
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col">
+                                <label for="usr">ID:</label>
+                                <input type="text" class="form-control" id="id">
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col">
+                                <label for="pwd">Password:</label>
+                                <input type="password" class="form-control" id="pwd">
+                            </div>
+                        </div>
+
+                        <br />
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="http://localhost:3000/signup"><button type="button"
+                                        class="btn-sm btn-primary btn-block mb-1">Sign up</button></a>
+                            </div>
+
+                            <div class="col-md-6">
+                                <button type="button" class="btn-sm btn-success btn-block" id="loginBtn">Login</button>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        window.onload = () => {
+            let parentHeight = window.innerHeight;
+            let cardHeight = Number(document.querySelector('#loginBox').style.height.replace(/[^0-9]/g, ''));
+
+            document.querySelector('#loginBox').style.marginTop = `${parentHeight / 2 - (cardHeight / 2)}px`;
+        }
+        window.onresize = () => {
+            let parentHeight = window.innerHeight;
+            let cardHeight = Number(document.querySelector('#loginBox').style.height.replace(/[^0-9]/g, ''));
+
+            document.querySelector('#loginBox').style.marginTop = `${parentHeight / 2 - (cardHeight / 2)}px`;
+        }
+    </script>
+
 </body>
 
 </html>
