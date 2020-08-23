@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./axios/postDetail.js" defer></script>
+    <title>PostDetail</title>
+    <style>
+        .nav-link {
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="z-index:10; position:sticky; top:0;">
+        <!-- Brand/logo -->
+        <a class="navbar-brand" href="http://localhost:3000/">Logo</a>
+
+        <!-- Links -->
+
+
+        <ul class="navbar-nav" style="margin-left:auto;">
+
+            <li class=" nav-item">
+                <a class="nav-link" href="http://localhost:3000/post">Post</a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" id="loginBox" onclick="goLogin()">Login</a>
+            </li>
+
+        </ul>
+    </nav>
+
+    <div style="display: flex; justify-content: center;">
+
+        <div class="card mt-4 mb-4" id="contentsBox" style="width:65%; ">
+            <div class="card-body container">
+
+                <div class="row">
+                    <div class='col'>
+
+                        <h1 class="card-title" id="title">Title</h1>
+
+                    </div>
+                </div>
+
+                <hr />
+
+                <div class="row">
+                    <div class='col'>
+
+                        <span class="card-text" style="float:left" id="nickName">작성자닉</span>
+                        <span class="card-text" style="float:right" id="date">작성일</span>
+
+
+                    </div>
+                </div>
+
+                <br />
+                <br />
+
+                <div class="row">
+                    <div class='col'>
+
+                        <p class="card-text" style="font-size: 24px;" id="contents">
+                            contents
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+
+        function goLogin() {
+
+            if (document.querySelector('#loginBox').innerText === "Login") {
+                location.href = "http://localhost:3000/login";
+            }
+
+            else {
+                sessionStorage.clear();
+                document.querySelector('#loginBox').innerHTML = 'Login';
+                location.href('http://localhost:3000/login');
+            }
+        }
+
+        if (!sessionStorage.length) {
+            document.querySelector('#writeBtn').style.display = "none";
+        }
+
+        if (sessionStorage.length) {
+            document.querySelector('#loginBox').innerHTML = "Logout";
+        }
+    </script>
+</body>
+
+</html>

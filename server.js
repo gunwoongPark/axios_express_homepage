@@ -98,6 +98,20 @@ app.get('/post', (req, res) => {
     res.sendFile(__dirname + "/post.html")
 })
 
+
+app.get('/server_post', (req, res) => {
+    if (fs.existsSync('posts.json')) {
+        fs.readFile('posts.json', 'utf8', function (err, data) {
+            let postArray = JSON.parse(data);
+            res.send(postArray);
+        })
+    }
+    else {
+        res.send('게시물이 존재하지 않습니다.');
+    }
+})
+
+
 app.get('/write', (req, res) => {
     res.sendFile(__dirname + "/write.html")
 })
@@ -153,7 +167,18 @@ app.post('/server_write', (req, res) => {
     res.send('게시글이 등록되었습니다.');
 })
 
+app.get('/postDetail', (req, res) => {
+    res.sendFile(__dirname + '/postDetail.html')
+})
 
+app.get('/postDetail/:guid', (req, res) => {
+    fs.readFile('posts.json', 'utf8', function (err, data) {
+        const jsonArray = JSON.parse(data);
+
+        const contentsObj = jsonArray.filter(el => el.guid === req.params.guid);
+        res.send(contentsObj);
+    })
+})
 
 app.listen(3000, () => {
     console.log('open server')

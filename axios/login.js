@@ -22,7 +22,14 @@ document.querySelector('#loginBtn').addEventListener('click', () => {
                 alert(`${res.data}님 환영합니다!`);
                 console.log(res);
                 sessionStorage.setItem('nickName', res.data)
-                window.history.back();
+
+                if (document.referrer === "http://localhost:3000/signup") {
+                    location.href = "http://localhost:3000/";
+                }
+                else {
+                    window.history.back();
+                }
+
             }
 
 

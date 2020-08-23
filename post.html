@@ -11,6 +11,10 @@
         .nav-link {
             cursor: pointer;
         }
+
+        .listRow {
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -47,7 +51,7 @@
 
         <div class="row">
             <div class="col">
-                <table class="table table-hover text-center mt-2" id="postList">
+                <table class="table table-hover text-center mt-2">
                     <thead>
                         <tr>
                             <th>번호</th>
@@ -56,20 +60,9 @@
                             <th>작성일</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>안녕</td>
-                            <td>닉네임</td>
-                            <td>2020-08-23</td>
-                        </tr>
+                    <tbody id="postList">
 
-                        <tr>
-                            <td>2</td>
-                            <td>안녕</td>
-                            <td>닉네임</td>
-                            <td>2020-08-23</td>
-                        </tr>
+
 
                     </tbody>
                 </table>

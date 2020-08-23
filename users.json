@@ -1,12 +1,1 @@
-[
-    {
-        "nickName": "test",
-        "id": "test",
-        "pwd": "test"
-    },
-    {
-        "nickName": "test2",
-        "id": "test2",
-        "pwd": "test2"
-    }
-]
+[{"nickName":"test","id":"test","pwd":"test"},{"nickName":"test2","id":"test2","pwd":"test2"},{"nickName":"건웅","id":"bung1438","pwd":"park0807"},{"nickName":"태호","id":"xogh","pwd":"xogh"}]
