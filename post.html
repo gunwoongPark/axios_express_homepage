@@ -85,7 +85,9 @@
 
             else {
                 sessionStorage.clear();
+                alert('로그아웃 되었습니다.');
                 document.querySelector('#loginBox').innerHTML = 'Login';
+
                 location.reload(true);
             }
         }

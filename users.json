@@ -1,1 +1,42 @@
-[{"nickName":"test","id":"test","pwd":"test"},{"nickName":"test2","id":"test2","pwd":"test2"},{"nickName":"건웅","id":"bung1438","pwd":"park0807"},{"nickName":"태호","id":"xogh","pwd":"xogh"}]
+[
+    {
+        "nickName": "test",
+        "id": "test",
+        "pwd": "test"
+    },
+    {
+        "nickName": "test2",
+        "id": "test2",
+        "pwd": "test2"
+    },
+    {
+        "nickName": "건웅",
+        "id": "bung1438",
+        "pwd": "park0807"
+    },
+    {
+        "nickName": "태호",
+        "id": "xogh",
+        "pwd": "xogh"
+    },
+    {
+        "nickName": "하영찐따쉑",
+        "id": "gkdud",
+        "pwd": "gkdud"
+    },
+    {
+        "nickName": "건웅2",
+        "id": "bung143",
+        "pwd": "park0807@"
+    },
+    {
+        "nickName": "testetst",
+        "id": "abcd",
+        "pwd": "park1561413@"
+    },
+    {
+        "nickName": "새로만든닉네임",
+        "id": "abcd1234",
+        "pwd": "park1561413@"
+    }
+]

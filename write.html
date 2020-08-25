@@ -12,8 +12,6 @@
         body {
             background-image: url('./assets/KakaoTalk_20200825_160649404.jpg');
         }
-        .card{
-        }
     </style>
 </head>
 
@@ -65,38 +63,41 @@
 
                 <div class="row ">
                     <div class="col mb-2">
-                        <button type="button" class="btn btn-block" style="background:rgb(61, 61, 61); color:white;" id="cancelBtn"
-                            onclick="clickCancel()">취소</button>
+                        <button type="button" class="btn btn-block" style="background:rgb(61, 61, 61); color:white;"
+                            id="cancelBtn" onclick="clickCancel()">취소</button>
                     </div>
                     <div class="col ">
-                        <button type="button" class="btn btn-block" style="background:orange;" id="registerBtn">등록</button>
+                        <button type="button" class="btn btn-block" style="background:orange;"
+                            id="registerBtn">등록</button>
                     </div>
                 </div>
+            </div>
         </div>
-    </div>
 
-    <script>
-        function goLogin() {
+        <script>
+            function goLogin() {
 
-            if (document.querySelector('#loginBox').innerText === "Login") {
-                location.href = "http://localhost:3000/login";
+                if (document.querySelector('#loginBox').innerText === "Login") {
+                    location.href = "http://localhost:3000/login";
+                }
+
+                else {
+                    sessionStorage.clear();
+                    alert('로그아웃 되었습니다.');
+                    document.querySelector('#loginBox').innerHTML = 'Login';
+
+                    location.href = 'http://localhost:3000/post';
+                }
             }
 
-            else {
-                sessionStorage.clear();
-                document.querySelector('#loginBox').innerHTML = 'Login';
-                location.href = 'http://localhost:3000/post';
+            if (sessionStorage.length) {
+                document.querySelector('#loginBox').innerHTML = "Logout";
             }
-        }
 
-        if (sessionStorage.length) {
-            document.querySelector('#loginBox').innerHTML = "Logout";
-        }
-
-        function clickCancel() {
-            window.history.back();
-        }
-    </script>
+            function clickCancel() {
+                window.history.back();
+            }
+        </script>
 </body>
 
 </html>
