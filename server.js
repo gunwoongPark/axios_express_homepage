@@ -180,6 +180,22 @@ app.get('/postDetail/:guid', (req, res) => {
     })
 })
 
+app.delete('/delete/:guid', (req, res) => {
+    fs.readFile('posts.json', 'utf8', function (err, data) {
+        const jsonArray = JSON.parse(data);
+        const index = jsonArray.findIndex(el => el.guid === req.params.guid);
+        jsonArray.splice(index, 1);
+
+        const jsonObj = JSON.stringify(jsonArray);
+
+        fs.writeFileSync('posts.json', jsonObj);
+
+        res.send('게시물이 삭제되었습니다.');
+
+    })
+
+})
+
 app.listen(3000, () => {
     console.log('open server')
 })
