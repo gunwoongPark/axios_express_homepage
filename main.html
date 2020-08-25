@@ -3,19 +3,45 @@
 
 <head>
     <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
     <title>Main</title>
     <style>
         .nav-link {
             cursor: pointer;
         }
+
+        .carousel-inner>.carousel-item>img {
+            height: auto;
+            width: 100%;
+        }
+
+        .carousel-inner {
+            max-height: 550px;
+        }
+
+        body {
+            background-image: url('./assets/KakaoTalk_20200825_160649404.jpg');
+        }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="position:sticky; top:0;">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark" style="position:sticky; top:0; z-index: 10;">
         <!-- Brand/logo -->
-        <a class="navbar-brand" href="http://localhost:3000/">Logo</a>
+        <a class="navbar-brand" href="http://localhost:3000/"><img
+                src="https://vignette.wikia.nocookie.net/overwatch/images/d/df/Overwatchemblem_white.png/revision/latest?cb=20160519003655"
+                alt="navLogo" width="40px;"></a>
 
         <!-- Links -->
 
@@ -33,12 +59,55 @@
 
     </nav>
 
-    <div class="container">
+    <div class="container mt-4">
         <div class="row">
-            <div class="col">
-                <h1>Hello Express!</h1>
+            <div class="col" style="background-color:white; display:flex; justify-content: center;">
+                <img src="https://file.thisisgame.com/upload/nboard/news/2019/04/10/20190410111115_8536w.jpg"
+                    alt="mainLogo">
             </div>
         </div>
+
+        <div class="row">
+            <div class="col">
+                <div id="demo" class="carousel slide" data-ride="carousel">
+
+                    <!-- Indicators -->
+                    <ul class="carousel-indicators">
+                        <li data-target="#demo" data-slide-to="0" class="active"></li>
+                        <li data-target="#demo" data-slide-to="1"></li>
+                        <li data-target="#demo" data-slide-to="2"></li>
+                    </ul>
+
+                    <!-- The slideshow -->
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://t1.daumcdn.net/cfile/tistory/2559F740575BD2E40A" alt="reaper">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://pds.joins.com/news/component/gamemeca/201604/27/0427KYH_17.jpg"
+                                alt="tracer">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://lh3.googleusercontent.com/proxy/ozPyyokbKD15htBgHR_I0RkK7puSeihrLMyYM0-u6bskq-dZ0Kj-9bq3HuYMNQ1CXuO__oQ_eMcw8CAx0jZ1u0-sRC6Liy_sfFuAwSdi16GMeAQJ1_kXaQXvalgsOLrZIcwW-1TDCSvXe-LThCl3GkvQmQkx7d-dEpEfX1PgXzdQFk_zXC4qggIuHps3r7y3qg5HMB6iS6GAxoBa8L2ZtuCH1J0D2q5p9RFQLnNSut6upoQzB-RpMF2nVmaI_CqYmKw5orMwVNE_sY5iN3cTZxsanEf87Hrd6-LGnB-g3S5cBxd-TcRN9ondWQ"
+                                alt="D.va">
+                        </div>
+                    </div>
+
+                    <!-- Left and right controls -->
+                    <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                        <span class="carousel-control-prev-icon"></span>
+                    </a>
+                    <a class="carousel-control-next" href="#demo" data-slide="next">
+                        <span class="carousel-control-next-icon"></span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
     </div>
 
     <script>
