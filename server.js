@@ -62,9 +62,12 @@ app.post('/server_signup', (req, res) => {
     if (fs.existsSync('users.json')) {
         fs.readFile('users.json', 'utf8', function (err, data) {
             let jsonArray = JSON.parse(data);
-            // 닉네임 중복검사
 
-            if (jsonArray.filter(user => user.nickName == userObj.nickName).length > 0)
+            if (jsonArray.filter(user => user.id == userObj.id).length > 0)
+                res.send('중복된 아이디입니다!');
+
+            // 닉네임 중복검사
+            else if (jsonArray.filter(user => user.nickName == userObj.nickName).length > 0)
                 res.send('중복된 닉네임입니다!');
 
             else {

@@ -63,7 +63,10 @@ function initBtn() {
                 nickName: document.querySelector('#nickName').value
             }).then(res => {
 
-                if (res.data === "중복된 닉네임입니다!") {
+                if (res.data === "중복된 아이디입니다!")
+                    alert(`${res.data}`);
+
+                else if (res.data === "중복된 닉네임입니다!") {
                     alert(`${res.data}`);
                 }
 
